@@ -1,0 +1,142 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String          @id @default(cuid())
+  name         String
+  role         Role            @default(member)
+  avatarColor  String?
+  createdAt    DateTime        @default(now())
+  transactions Transaction[]
+  chatMessages AiChatMessage[]
+}
+
+enum Role {
+  admin
+  member
+}
+
+model BudgetPeriod {
+  id                       String   @id @default(cuid())
+  startDate                DateTime
+  endDate                  DateTime
+  plannedBudget            Float
+  startingBalance          Float
+  includeRecurringInBudget Boolean  @default(false)
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+model Transaction {
+  id          String    @id @default(cuid())
+  type        TxType
+  amount      Float
+  description String
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id])
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  date        DateTime  @default(now())
+  source      TxSource  @default(manual)
+  confidence  Float?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+enum TxType {
+  income
+  expense
+}
+
+enum TxSource {
+  manual
+  ai
+}
+
+model Category {
+  id               String             @id @default(cuid())
+  name             String
+  type             CatType
+  color            String?
+  emoji            String?
+  createdAt        DateTime           @default(now())
+  transactions     Transaction[]
+  recurringPayments RecurringPayment[]
+  plannedExpenses  PlannedExpense[]
+}
+
+enum CatType {
+  income
+  expense
+}
+
+model RecurringPayment {
+  id         String    @id @default(cuid())
+  name       String
+  amount     Float
+  categoryId String
+  category   Category  @relation(fields: [categoryId], references: [id])
+  dayOfMonth Int?
+  frequency  Frequency @default(monthly)
+  isActive   Boolean   @default(true)
+  comment    String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+enum Frequency {
+  weekly
+  monthly
+  yearly
+}
+
+model PlannedExpense {
+  id              String    @id @default(cuid())
+  name            String
+  estimatedAmount Float
+  categoryId      String
+  category        Category  @relation(fields: [categoryId], references: [id])
+  plannedDate     DateTime?
+  priority        Priority  @default(medium)
+  necessity       Necessity @default(optional)
+  status          ExpStatus @default(planned)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+enum Priority {
+  low
+  medium
+  high
+}
+
+enum Necessity {
+  required
+  optional
+}
+
+enum ExpStatus {
+  planned
+  purchased
+  postponed
+  cancelled
+}
+
+model AiChatMessage {
+  id        String   @id @default(cuid())
+  role      ChatRole
+  content   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+enum ChatRole {
+  user
+  assistant
+}
