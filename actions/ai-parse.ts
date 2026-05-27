@@ -4,11 +4,10 @@ import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
 import { parseExpenses, type ParsedExpense } from '@/lib/ai';
 import { getCurrentUserId } from '@/lib/user';
-import type { Category } from '@prisma/client';
 
 export async function parseAndConfirm(text: string): Promise<ParsedExpense[]> {
   const categories = await prisma.category.findMany({ where: { type: 'expense' } });
-  const categoryNames = categories.map((c: Category) => c.name);
+  const categoryNames = categories.map((c: { name: string }) => c.name);
   return parseExpenses(text, categoryNames);
 }
 
@@ -17,7 +16,7 @@ export async function confirmExpenses(expenses: ParsedExpense[]): Promise<void> 
   if (!userId) throw new Error('Пользователь не авторизован');
 
   const categories = await prisma.category.findMany({ where: { type: 'expense' } });
-  const categoryMap = new Map(categories.map((c: Category) => [c.name, c.id]));
+  const categoryMap = new Map(categories.map((c: { name: string; id: string }) => [c.name, c.id]));
 
   await prisma.transaction.createMany({
     data: expenses.map((exp) => ({
