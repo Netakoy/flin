@@ -1,4 +1,4 @@
-import { generateTip } from '@/lib/ai';
+import { generateTipCached } from '@/lib/ai';
 
 interface Props {
   budgetContext: string;
@@ -7,7 +7,7 @@ interface Props {
 export default async function FlinTip({ budgetContext }: Props) {
   let tip = 'Считаю данные…';
   try {
-    tip = await generateTip(budgetContext);
+    tip = await generateTipCached(budgetContext);
   } catch {
     tip = 'Бюджет загружен. Введи расходы, чтобы я смог дать совет.';
   }

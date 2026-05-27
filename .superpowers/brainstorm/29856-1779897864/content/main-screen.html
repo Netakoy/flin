@@ -1,0 +1,89 @@
+<h2>Главный экран — выбери вариант</h2>
+<p class="subtitle">Как должна выглядеть главная страница ФЛИНА?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f8fafc;border-radius:8px;padding:16px;font-family:system-ui;font-size:13px;color:#1e293b">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#94a3b8;margin-bottom:8px">ФЛИН</div>
+      <div style="margin-bottom:12px">
+        <div style="color:#64748b;font-size:11px">Текущий остаток</div>
+        <div style="font-size:28px;font-weight:700;color:#0f172a">15 000 ₽</div>
+        <div style="color:#64748b;font-size:11px;margin-top:6px">С учётом будущих трат</div>
+        <div style="font-size:20px;font-weight:700;color:#ef4444">−3 500 ₽</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:8px;display:flex;gap:6px;margin-bottom:10px">
+        <input style="border:none;outline:none;flex:1;font-size:12px;color:#64748b;background:transparent" placeholder="300 кофе, 1200 продукты...">
+        <button style="background:#0f172a;color:#fff;border:none;border-radius:6px;padding:4px 10px;font-size:11px">Добавить</button>
+      </div>
+      <div style="background:#fef2f2;border-radius:6px;padding:8px;font-size:11px;color:#dc2626;margin-bottom:10px">
+        ⚠️ Бюджет уйдёт в минус из-за кровати и ипотеки. Лимит: 900 ₽/день
+      </div>
+      <div style="font-size:11px;color:#64748b;font-weight:600;margin-bottom:4px">Последние операции</div>
+      <div style="font-size:11px;color:#475569">— 3 000 ₽ · Детсад</div>
+      <div style="font-size:11px;color:#475569">— 230 ₽ · Продукты</div>
+    </div>
+    <div class="card-body">
+      <h3>А — Компактный</h3>
+      <p>Всё на одном экране: остатки сверху, ввод посередине, подсказка AI и операции снизу. Минимум скролла.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f8fafc;border-radius:8px;padding:16px;font-family:system-ui;font-size:13px;color:#1e293b">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#94a3b8">ФЛИН</div>
+        <div style="font-size:11px;background:#f1f5f9;border-radius:20px;padding:2px 8px;color:#475569">Стас</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+        <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #e2e8f0">
+          <div style="font-size:10px;color:#94a3b8">Сейчас</div>
+          <div style="font-size:20px;font-weight:700;color:#0f172a">15 000 ₽</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #fecaca">
+          <div style="font-size:10px;color:#94a3b8">Прогноз</div>
+          <div style="font-size:20px;font-weight:700;color:#ef4444">−3 500 ₽</div>
+        </div>
+      </div>
+      <div style="background:#0f172a;border-radius:8px;padding:10px;margin-bottom:10px">
+        <input style="border:none;outline:none;width:100%;font-size:12px;color:#fff;background:transparent" placeholder="Введи расходы...">
+      </div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:6px">Ближайшие платежи</div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#475569;margin-bottom:2px"><span>15 мая · Ипотека</span><span style="font-weight:600">45 000 ₽</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#475569"><span>20 мая · Интернет</span><span style="font-weight:600">900 ₽</span></div>
+    </div>
+    <div class="card-body">
+      <h3>Б — Карточки + тёмный ввод</h3>
+      <p>Два блока-карточки для остатков, тёмная строка ввода. Имя пользователя видно сразу. Акцент на ближайших платежах.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f8fafc;border-radius:8px;padding:16px;font-family:system-ui;font-size:13px;color:#1e293b">
+      <div style="text-align:center;margin-bottom:12px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#94a3b8;margin-bottom:4px">ФЛИН</div>
+        <div style="font-size:32px;font-weight:800;color:#0f172a">15 000 ₽</div>
+        <div style="font-size:11px;color:#64748b">текущий остаток</div>
+        <div style="margin-top:4px;display:inline-block;background:#fef2f2;border-radius:20px;padding:2px 10px">
+          <span style="font-size:12px;font-weight:700;color:#ef4444">−3 500 ₽</span>
+          <span style="font-size:10px;color:#94a3b8"> с учётом трат</span>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin-bottom:10px">
+        <div style="font-size:10px;color:#94a3b8;margin-bottom:4px">БЫСТРЫЙ ВВОД</div>
+        <input style="border:none;outline:none;width:100%;font-size:13px;color:#0f172a;background:transparent;margin-bottom:8px" placeholder="300 кофе, 1200 продукты...">
+        <div style="display:flex;gap:6px">
+          <button style="flex:1;background:#0f172a;color:#fff;border:none;border-radius:6px;padding:6px;font-size:11px">Добавить</button>
+          <button style="flex:1;background:#f1f5f9;color:#475569;border:none;border-radius:6px;padding:6px;font-size:11px">Спросить ФЛИНА</button>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#475569">— 3 000 ₽ · Детсад · 10 мая</div>
+      <div style="font-size:11px;color:#475569">— 230 ₽ · Продукты · 10 мая</div>
+    </div>
+    <div class="card-body">
+      <h3>В — Центрированный, крупные цифры</h3>
+      <p>Большой акцент на сумме остатка по центру. Прогноз — маленький тег рядом. Две кнопки: «Добавить» и «Спросить ФЛИНА».</p>
+    </div>
+  </div>
+
+</div>

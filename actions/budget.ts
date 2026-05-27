@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
+import { getCurrentUser } from '@/lib/user';
 
 export async function updateBudgetPeriod(data: {
   id: string;
@@ -11,6 +12,8 @@ export async function updateBudgetPeriod(data: {
   startingBalance: number;
   includeRecurringInBudget: boolean;
 }) {
+  const user = await getCurrentUser();
+  if (user?.role !== 'admin') throw new Error('Forbidden');
   await prisma.budgetPeriod.update({
     where: { id: data.id },
     data: {

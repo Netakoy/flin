@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { unstable_cache } from 'next/cache';
 import { prisma } from './prisma';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -30,8 +31,12 @@ export async function parseExpenses(
   });
 
   const content = response.choices[0].message.content ?? '{"expenses":[]}';
-  const parsed = JSON.parse(content) as { expenses: ParsedExpense[] };
-  return parsed.expenses ?? [];
+  try {
+    const parsed = JSON.parse(content) as { expenses: ParsedExpense[] };
+    return parsed.expenses ?? [];
+  } catch {
+    return [];
+  }
 }
 
 export async function generateTip(budgetContext: string): Promise<string> {
@@ -105,3 +110,9 @@ ${recurringList || 'нет'}
 Запланированные расходы:
 ${plannedList || 'нет'}`;
 }
+
+export const generateTipCached = unstable_cache(
+  generateTip,
+  ['flin-tip'],
+  { revalidate: 3600 }
+);

@@ -42,6 +42,11 @@ export default function BalanceCard({ summary, userName }: Props) {
             </p>
           </div>
         </div>
+        {summary.dailyLimit > 0 && (
+          <p className="text-[11px] text-green-200/70 mt-2">
+            ~{fmt(Math.round(summary.dailyLimit))} ₽/день · {summary.daysRemaining} дн. осталось
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,107 @@
+<h2>Главный экран — мобильная версия</h2>
+<p class="subtitle">Выбери стиль оформления. Все варианты заточены под телефон: крупные кнопки, воздух между блоками.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f1f5f9;border-radius:12px;padding:12px;display:flex;justify-content:center">
+      <!-- Имитация экрана телефона 375px -->
+      <div style="width:220px;background:#f8fafc;border-radius:20px;padding:20px 16px;font-family:system-ui;box-shadow:0 4px 20px rgba(0,0,0,0.10)">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+          <span style="font-size:14px;font-weight:800;letter-spacing:1px;color:#0f172a">ФЛИН</span>
+          <span style="font-size:11px;background:#f1f5f9;border-radius:20px;padding:4px 10px;color:#475569;font-weight:600">Стас</span>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+          <div style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Сейчас</div>
+          <div style="font-size:30px;font-weight:800;color:#0f172a;line-height:1">15 000 ₽</div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,0.06);border-left:3px solid #ef4444">
+          <div style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">С учётом трат</div>
+          <div style="font-size:24px;font-weight:800;color:#ef4444;line-height:1">−3 500 ₽</div>
+        </div>
+
+        <div style="background:#fff;border-radius:16px;padding:14px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+          <div style="font-size:11px;color:#94a3b8;margin-bottom:8px">Введи расходы</div>
+          <div style="font-size:12px;color:#cbd5e1;font-style:italic">300 кофе, 1200 такси…</div>
+        </div>
+
+        <button style="width:100%;background:#0f172a;color:#fff;border:none;border-radius:12px;padding:14px;font-size:13px;font-weight:600">Добавить</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>А — Светлый, карточки</h3>
+      <p>Каждый блок — отдельная карточка с воздухом. Светлый фон. Красный акцент только на риске.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f172a;border-radius:12px;padding:12px;display:flex;justify-content:center">
+      <div style="width:220px;background:#1e293b;border-radius:20px;padding:20px 16px;font-family:system-ui;box-shadow:0 4px 20px rgba(0,0,0,0.3)">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+          <span style="font-size:14px;font-weight:800;letter-spacing:1px;color:#f8fafc">ФЛИН</span>
+          <span style="font-size:11px;background:#334155;border-radius:20px;padding:4px 10px;color:#94a3b8;font-weight:600">Стас</span>
+        </div>
+
+        <div style="margin-bottom:24px;text-align:center">
+          <div style="font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Текущий остаток</div>
+          <div style="font-size:36px;font-weight:800;color:#f8fafc;line-height:1">15 000 ₽</div>
+          <div style="margin-top:10px;display:inline-flex;align-items:center;gap:6px;background:#7f1d1d;border-radius:20px;padding:5px 12px">
+            <span style="font-size:12px;color:#fca5a5;font-weight:700">−3 500 ₽</span>
+            <span style="font-size:10px;color:#f87171">прогноз</span>
+          </div>
+        </div>
+
+        <div style="background:#0f172a;border-radius:16px;padding:14px;margin-bottom:14px">
+          <div style="font-size:11px;color:#475569;margin-bottom:8px">Введи расходы</div>
+          <div style="font-size:12px;color:#334155;font-style:italic">300 кофе, 1200 такси…</div>
+        </div>
+
+        <button style="width:100%;background:#3b82f6;color:#fff;border:none;border-radius:12px;padding:14px;font-size:13px;font-weight:600">Добавить</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Б — Тёмная тема</h3>
+      <p>Тёмный фон, крупный остаток по центру, прогноз — красный бейдж. Синяя кнопка действия.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f0fdf4;border-radius:12px;padding:12px;display:flex;justify-content:center">
+      <div style="width:220px;background:#fff;border-radius:20px;padding:20px 16px;font-family:system-ui;box-shadow:0 4px 20px rgba(0,0,0,0.08)">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+          <span style="font-size:14px;font-weight:800;letter-spacing:1px;color:#14532d">ФЛИН</span>
+          <span style="font-size:11px;background:#f0fdf4;border-radius:20px;padding:4px 10px;color:#16a34a;font-weight:600">Стас</span>
+        </div>
+
+        <div style="background:linear-gradient(135deg,#16a34a,#15803d);border-radius:16px;padding:18px;margin-bottom:16px">
+          <div style="font-size:10px;color:#bbf7d0;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Текущий остаток</div>
+          <div style="font-size:30px;font-weight:800;color:#fff;line-height:1">15 000 ₽</div>
+          <div style="margin-top:10px;background:rgba(0,0,0,0.2);border-radius:10px;padding:6px 10px;display:inline-block">
+            <span style="font-size:12px;color:#fca5a5;font-weight:700">−3 500 ₽</span>
+            <span style="font-size:10px;color:#fcd9d9"> с учётом трат</span>
+          </div>
+        </div>
+
+        <div style="border:1.5px solid #e2e8f0;border-radius:16px;padding:14px;margin-bottom:14px">
+          <div style="font-size:11px;color:#94a3b8;margin-bottom:8px">Введи расходы</div>
+          <div style="font-size:12px;color:#cbd5e1;font-style:italic">300 кофе, 1200 такси…</div>
+        </div>
+
+        <button style="width:100%;background:#16a34a;color:#fff;border:none;border-radius:12px;padding:14px;font-size:13px;font-weight:600">Добавить</button>
+
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>В — Зелёный акцент</h3>
+      <p>Градиентная карточка с остатком, зелёный основной цвет. Позитивное ощущение финансового контроля.</p>
+    </div>
+  </div>
+
+</div>
