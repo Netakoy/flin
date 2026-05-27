@@ -1,7 +1,6 @@
 import { cookies } from 'next/headers';
 import { prisma } from './prisma';
-
-export const USER_COOKIE = 'flin_user_id';
+import { USER_COOKIE } from './constants';
 
 export async function getCurrentUser() {
   const cookieStore = await cookies();

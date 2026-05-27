@@ -2,8 +2,7 @@
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-
-const USER_COOKIE = 'flin_user_id';
+import { USER_COOKIE } from '@/lib/constants';
 
 export async function selectUser(userId: string) {
   const cookieStore = await cookies();

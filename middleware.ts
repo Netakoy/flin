@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-
-const USER_COOKIE = 'flin_user_id';
+import { USER_COOKIE } from '@/lib/constants';
 
 export function middleware(request: NextRequest) {
   const userId = request.cookies.get(USER_COOKIE)?.value;
