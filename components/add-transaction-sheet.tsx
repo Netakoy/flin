@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import AddTransactionForm from '@/components/add-transaction-form';
 import type { Category } from '@prisma/client';
@@ -11,10 +10,8 @@ export default function AddTransactionSheet({ categories }: { categories: Catego
   const [open, setOpen] = useState(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger>
-        <Button className="bg-green-600 hover:bg-green-700 rounded-xl h-10 px-4">
-          <Plus size={16} className="mr-1" /> Добавить
-        </Button>
+      <SheetTrigger className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white rounded-xl h-10 px-4 text-sm font-medium transition-colors">
+        <Plus size={16} className="mr-1" /> Добавить
       </SheetTrigger>
       <SheetContent side="bottom" className="rounded-t-2xl">
         <SheetHeader>
